@@ -42,6 +42,9 @@ public abstract class Animal {
         this.commands = commands;
     }
 
-    
+    @Override
+    public String toString() {
+        return String.format("Имя: %s, Дата рождения: %t", name, birthDate);
+    }
 
 }
