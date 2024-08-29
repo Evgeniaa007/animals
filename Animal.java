@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public abstract class Animal {
+    private int id;
     private static int counter;
     private String name;
     private LocalDate birthDate; 
@@ -11,14 +12,14 @@ public abstract class Animal {
 
 
     public Animal(String name, LocalDate birthDate, String species){
-        ++counter;
+        id = ++counter;
         this.name = name;
         this.birthDate = birthDate;
         setSpecies(species);
     }
 
-    public static int getCounter() {
-        return counter;
+    public int getCounter() {
+        return id;
      }
   
 
@@ -75,7 +76,7 @@ public abstract class Animal {
  
     @Override
     public String toString() {
-        return String.format("Name: %s, Birthdate: %t, Speciees: %s", name, birthDate, species);
+        return String.format("%d. Name: %s, Birthdate: %s, Speciees: %s, Learned commands: %s", id, name, birthDate, species, commands);
     }
 
 }
