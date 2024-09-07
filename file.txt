@@ -1,2 +1,0 @@
-1. Name: Плюша, Birthdate: 2021-09-03, Speciees: DOG, Learned commands: []
-2. Name: Хан, Birthdate: 2024-04-11, Speciees: HAMSTER, Learned commands: []

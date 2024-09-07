@@ -1,8 +1,11 @@
-import java.time.LocalDate;
-
 public class Hamster extends Animal {
 
-    public Hamster(String name, LocalDate birthDate, String species) {
-        super(name, birthDate, species);
+    public Hamster(String name, String birthDate) {
+        super(name, birthDate);
+    }
+
+    @Override
+    public String getSpecies() {
+        return "Hamster";
     }
 }

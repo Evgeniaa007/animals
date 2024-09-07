@@ -1,9 +1,12 @@
-import java.time.LocalDate;
-
 public class Dog extends Animal{
 
-    public Dog(String name, LocalDate birthDate, String species) {
-        super(name, birthDate, species);
+    public Dog(String name, String birthDate) {
+        super(name, birthDate);
     }
    
+    @Override
+    public String getSpecies() {
+        return "Dog";
+    }
+
 }

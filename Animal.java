@@ -1,27 +1,16 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public abstract class Animal {
-    private int id;
-    private static int counter;
-    private String name;
-    private LocalDate birthDate; 
-    private Species species;
-    private HashSet<String> commands = new HashSet<String>();
-
-
-    public Animal(String name, LocalDate birthDate, String species){
-        id = ++counter;
+    protected int id;
+    protected String name;
+    protected String birthDate; 
+    protected ArrayList<String> commands;
+   
+    public Animal(String name, String birthDate){
         this.name = name;
         this.birthDate = birthDate;
-        setSpecies(species);
+        getCommands();
     }
-
-    public int getCounter() {
-        return id;
-     }
-  
 
     public String getName() {
         return this.name;
@@ -31,18 +20,29 @@ public abstract class Animal {
         this.name = name;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        return this.birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
-    public Species getSpecies(Species species) {
-        return species;
-    }
+    public abstract String getSpecies();
 
+    public ArrayList<String> getCommands() {
+            return commands;
+        }
+        
+        public void learnCommand(String commands) {
+            this.commands.add(commands);
+        }
+    
+        @Override
+        public String toString() {
+            return String.format("%d. Name: %s, Birthdate: %s, Speciees: %s, Learned commands: %s", id, name, birthDate, getSpecies(), commands);
+        }
+/*
     public void setSpecies(String species) {
         switch (species.toLowerCase()) {
             case ("cat"):
@@ -65,18 +65,12 @@ public abstract class Animal {
                 break;
         }
     }
-
-    public String getCommands() {
-        return commands.toString();
-    }
+*/
+/*
+    public int getCounter() {
+        return id;
+     }
+  */
     
-    public void setCommands(HashSet<String> commands) {
-        this.commands = commands;
-    }
- 
-    @Override
-    public String toString() {
-        return String.format("%d. Name: %s, Birthdate: %s, Speciees: %s, Learned commands: %s", id, name, birthDate, species, commands);
-    }
 
 }
