@@ -13,7 +13,7 @@ public class RegistryFunctions {
         String type = scanner.nextLine().toLowerCase();
         System.out.print("Введите имя животного: ");
         String name = scanner.nextLine();
-        System.out.print("Введите дату рождения животного: ");
+        System.out.print("Введите дату рождения животного в формате DD.MM.YYYY: ");
         String birthDate = scanner.nextLine();
 
         Animal animal = null;
@@ -62,31 +62,39 @@ public class RegistryFunctions {
     }
 
     public static void displayCommands() {
+        for (Animal animal : animals) {
+            System.out.println(animal.name);
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.print("Имя животного, чьи команды вы хотите увидеть: ");
         String name = scanner.nextLine();
-        scanner.close();
         for (Animal animal : animals) {
             if (animal.name.equalsIgnoreCase(name)) {
-                System.out.println(name + "знает команды: " + animal.getCommands());
-                return;
+                System.out.println(name + " знает команды: " + animal.getCommands());
+            }
+            else{
+                System.out.println("Животого нет в реестре.");
             }
         }
-        System.out.println("Животого нет в реестре.");
     }
 
     public static void addNewCommand() {
+        for (Animal animal : animals) {
+            System.out.println(animal.name);
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.print("Имя животного, которое выучило новую команду: ");
         String name = scanner.nextLine();
         for (Animal animal : animals) {
             if (animal.name.equalsIgnoreCase(name)) {
-                System.out.print(name + "выучил команду: ");
+                System.out.print("Введите выученную команду: ");
                 String command = scanner.nextLine();
                 animal.learnCommand(command);
+                System.out.print(name + " выучил команду: " + command);
+            }
+            else{
+                System.out.println("Животого нет в реестре.");
             }
         }
-        scanner.close();
-        System.out.println("Животого нет в реестре.");
     }
 }

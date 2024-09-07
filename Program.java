@@ -38,6 +38,7 @@ public class Program {
                         break;
                     case 0:
                         System.out.println("Вы вышли из реестра");
+                        scanner.close();
                         return;
                     default:
                         System.out.println("Функции не существует. Повторите выбор.");
