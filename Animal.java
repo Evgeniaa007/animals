@@ -40,7 +40,7 @@ public abstract class Animal {
     
         @Override
         public String toString() {
-            return String.format("%d. Name: %s, Birthdate: %s, Speciees: %s, Learned commands: %s", id, name, birthDate, getSpecies(), commands);
+            return String.format("Name: %s, Birthdate: %s, Speciees: %s, Learned commands: %s", name, birthDate, getSpecies(), commands);
         }
 
 }

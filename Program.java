@@ -28,7 +28,7 @@ public class Program {
                         RegistryFunctions.showAllAnimals();
                         break;
                     case 2:
-                        RegistryFunctions.newAnimal(counter);
+                        RegistryFunctions.newAnimal();
                         break;
                     case 3:
                         RegistryFunctions.displayCommands();
