@@ -1,3 +1,4 @@
+package models;
 public class Hamster extends Animal {
 
     public Hamster(String name, String birthDate) {

@@ -1,3 +1,4 @@
+package exception;
 public class EmptyCheck extends CreationException {
 
     public EmptyCheck(){

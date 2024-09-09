@@ -1,12 +1,18 @@
+package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RegistryFunctions {
+import exception.CreationException;
+import exception.ExceptionFunction;
+import presenters.Counter;
+import presenters.Model;
+
+public class RegistryFunctions implements Model{
 
     public static List<Animal> animals = new ArrayList<>();
 
-    public static void newAnimal() {
+    public List<Animal> newAnimal() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(
                 "Выберите животное, которое хотите добавить в реестр: \n cat, dog, hamster, horse, donkey, camel");
@@ -51,7 +57,6 @@ public class RegistryFunctions {
                     break;
                 default:
                     System.out.println("В реестр нельзя внести такое животное.");
-                    return;
             }
         }
         catch(Exception e){
@@ -59,58 +64,11 @@ public class RegistryFunctions {
         }
 
         animals.add(animal);
-        System.out.println("Животное добавлено.");
-
+        return animals;
     }
 
-    public static void showAllAnimals() {
-        if (animals.isEmpty()) {
-            System.out.println("В реестре нет животных.");
-        } else {
-            for (Animal animal : animals) {
-                System.out.println(animal);
-            }
-        }
+    public List<Animal> showAllAnimals() {
+        return animals;
     }
 
-    public static void displayCommands() {
-        boolean flag = true;
-        for (Animal animal : animals) {
-            System.out.println(animal.name);
-        }
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Имя животного, чьи команды вы хотите увидеть: ");
-        String name = scanner.nextLine();
-        for (Animal animal : animals) {
-            if (animal.name.equalsIgnoreCase(name)) {
-                System.out.println(name + " знает команды: " + animal.getCommands());
-                flag = false;
-            }
-        }
-        if (flag){
-            System.out.println("Такого животного нет в реестре");
-        }
-    }
-
-    public static void addNewCommand() {
-        boolean flag = true;
-        for (Animal animal : animals) {
-            System.out.println(animal.name);
-        }
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Имя животного, которое выучило новую команду: ");
-        String name = scanner.nextLine();
-        for (Animal animal : animals) {
-            if (animal.name.equalsIgnoreCase(name)) {
-                System.out.print("Введите выученную команду: ");
-                String command = scanner.nextLine();
-                animal.learnCommand(command);
-                System.out.print(name + " выучил команду: " + command);
-                flag = false;
-            }
-        }
-        if (flag){
-            System.out.println("Такого животного нет в реестре");
-        }
-    }
 }
